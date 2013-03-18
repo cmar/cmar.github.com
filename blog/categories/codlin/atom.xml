@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: codlin | cmar blog]]></title>
+  <link href="http://cmar.github.com/blog/categories/codlin/atom.xml" rel="self"/>
+  <link href="http://cmar.github.com/"/>
+  <updated>2013-03-18T10:47:47-04:00</updated>
+  <id>http://cmar.github.com/</id>
+  <author>
+    <name><![CDATA[Chris Mar]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[bundle searching]]></title>
+    <link href="http://cmar.github.com/blog/2013/03/18/bundle-searching/"/>
+    <updated>2013-03-18T10:27:00-04:00</updated>
+    <id>http://cmar.github.com/blog/2013/03/18/bundle-searching</id>
+    <content type="html"><![CDATA[<p>Jim Gay (<a href="https://twitter.com/saturnflyer">@saturnflyer</a>) posted a <a href="http://www.saturnflyer.com/blog/jim/2013/03/15/searching-through-your-bundled-gems">great tip</a> for using <a href="https://github.com/ggreer/the_silver_searcher">The Silver Searcher</a> to find the occurrence of a word within the gem dependencies for your project.</p>
+
+<p>Bundler has had requests for search capabilities. Rule #2 of the Unix Philosophy is make each program do one thing well. The Silver Searcher is my current favorite searching tool. Its replaced grep and ack for all my code searching. Following rule #2, we don't need bundler to search for us, we just need to compose it together with the best search tool.</p>
+
+<p>Its a simple idea. Jim Gay wrote about it. I thought it was brilliant. I created an alias to make it easy to use:</p>
+
+<p><code>
+alias bs="bundle show --paths | xargs ag"
+</code></p>
+
+<p>Now, inside a project I can run 'bs user' to search for the word 'user' within all the gems included in my project. Is this fast? Yes! Inside a Spree sandbox - which has 81 gem dependencies - I can search for a common word like 'user' in 3.339s.</p>
+
+<p>Thanks for the idea Jim!</p>
+]]></content>
+  </entry>
+  
+</feed>

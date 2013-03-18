@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: deface - cmar blog</title>
+  <title>bundle searching - cmar blog</title>
   <meta name="author" content="Chris Mar">
 
   
-  <meta name="description" content="Category: deface">
+  <meta name="description" content="Jim Gay (@saturnflyer) posted a great tip for using The Silver Searcher to find the occurrence of a word within the gem dependencies for your project &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://cmar.github.comblog/categories/deface">
+  <link rel="canonical" href="http://cmar.github.com/blog/2013/03/18/bundle-searching">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -75,36 +75,103 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Deface</h1>
+    
+      <h1 class="entry-title">Bundle Searching</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-18T10:27:00-04:00" pubdate data-updated="true">Mar 18<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Jim Gay (<a href="https://twitter.com/saturnflyer">@saturnflyer</a>) posted a <a href="http://www.saturnflyer.com/blog/jim/2013/03/15/searching-through-your-bundled-gems">great tip</a> for using <a href="https://github.com/ggreer/the_silver_searcher">The Silver Searcher</a> to find the occurrence of a word within the gem dependencies for your project.</p>
 
-  
-  <h2>2012</h2>
+<p>Bundler has had requests for search capabilities. Rule #2 of the Unix Philosophy is make each program do one thing well. The Silver Searcher is my current favorite searching tool. Its replaced grep and ack for all my code searching. Following rule #2, we don&#8217;t need bundler to search for us, we just need to compose it together with the best search tool.</p>
 
-<article>
-  
-<h1><a href="/blog/2012/08/10/defacing-your-views/">Defacing Your Views</a></h1>
-<time datetime="2012-08-10T09:56:00-04:00" pubdate><span class='month'>Aug</span> <span class='day'>10</span> <span class='year'>2012</span></time>
+<p>Its a simple idea. Jim Gay wrote about it. I thought it was brilliant. I created an alias to make it easy to use:</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/deface/'>deface</a>, <a class='category' href='/blog/categories/spree-/'>spree,</a></span>
-</footer>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>alias bs="bundle show --paths | xargs ag"</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>Now, inside a project I can run &#8216;bs user&#8217; to search for the word &#8216;user&#8217; within all the gems included in my project. Is this fast? Yes! Inside a Spree sandbox - which has 81 gem dependencies - I can search for a common word like &#8216;user&#8217; in 3.339s.</p>
 
+<p>Thanks for the idea Jim!</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Chris Mar</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-18T10:27:00-04:00" pubdate data-updated="true">Mar 18<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/codlin/'>codlin</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cmar.github.com/blog/2013/03/18/bundle-searching/" data-via="cmar" data-counturl="http://cmar.github.com/blog/2013/03/18/bundle-searching/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/08/10/defacing-your-views/" title="Previous Post: Defacing Your Views">&laquo; Defacing Your Views</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -205,7 +272,10 @@
       var disqus_shortname = 'cmarblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cmar.github.com/blog/2013/03/18/bundle-searching/';
+        var disqus_url = 'http://cmar.github.com/blog/2013/03/18/bundle-searching/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

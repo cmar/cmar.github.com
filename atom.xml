@@ -4,7 +4,7 @@
   <title><![CDATA[cmar blog]]></title>
   <link href="http://cmar.github.com/atom.xml" rel="self"/>
   <link href="http://cmar.github.com/"/>
-  <updated>2013-03-18T09:40:04-04:00</updated>
+  <updated>2013-03-18T10:47:47-04:00</updated>
   <id>http://cmar.github.com/</id>
   <author>
     <name><![CDATA[Chris Mar]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[bundle searching]]></title>
+    <link href="http://cmar.github.com/blog/2013/03/18/bundle-searching/"/>
+    <updated>2013-03-18T10:27:00-04:00</updated>
+    <id>http://cmar.github.com/blog/2013/03/18/bundle-searching</id>
+    <content type="html"><![CDATA[<p>Jim Gay (<a href="https://twitter.com/saturnflyer">@saturnflyer</a>) posted a <a href="http://www.saturnflyer.com/blog/jim/2013/03/15/searching-through-your-bundled-gems">great tip</a> for using <a href="https://github.com/ggreer/the_silver_searcher">The Silver Searcher</a> to find the occurrence of a word within the gem dependencies for your project.</p>
+
+<p>Bundler has had requests for search capabilities. Rule #2 of the Unix Philosophy is make each program do one thing well. The Silver Searcher is my current favorite searching tool. Its replaced grep and ack for all my code searching. Following rule #2, we don&#8217;t need bundler to search for us, we just need to compose it together with the best search tool.</p>
+
+<p>Its a simple idea. Jim Gay wrote about it. I thought it was brilliant. I created an alias to make it easy to use:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>alias bs="bundle show --paths | xargs ag"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, inside a project I can run &#8216;bs user&#8217; to search for the word &#8216;user&#8217; within all the gems included in my project. Is this fast? Yes! Inside a Spree sandbox - which has 81 gem dependencies - I can search for a common word like &#8216;user&#8217; in 3.339s.</p>
+
+<p>Thanks for the idea Jim!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Defacing Your Views]]></title>
