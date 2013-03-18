@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails | cmar blog]]></title>
+  <link href="http://cmar.github.com/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://cmar.github.com/"/>
+  <updated>2013-03-18T09:22:16-04:00</updated>
+  <id>http://cmar.github.com/</id>
+  <author>
+    <name><![CDATA[Chris Mar]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[url reconstruction in rails]]></title>
+    <link href="http://cmar.github.com/blog/2012/03/13/url-reconstruction-in-rails/"/>
+    <updated>2012-03-13T10:50:00-04:00</updated>
+    <id>http://cmar.github.com/blog/2012/03/13/url-reconstruction-in-rails</id>
+    <content type="html"><![CDATA[<h2>Problem</h2>
+
+<p>In Rails, I needed to take the request url and redirect the user to a new host with additional query parameters while passing the original path and query parameters.</p>
+
+<p>For example, if the original request looked like:</p>
+
+<pre><code>"http://www.mystore.com/cart?sort=desc"
+</code></pre>
+
+<p>I needed to redirect them to:</p>
+
+<pre><code>"https://mobile.mystore.com/cart?sort=desc&amp;view=ipad"
+</code></pre>
+
+<p>While this could be done with fancy string manipulation, I figured there had to be a cleaner and less error prone way.</p>
+
+<h2>Solution</h2>
+
+<p>There is a great utility in <a href="http://www.ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/Kernel.html#method-c-URI">Ruby Core</a> to handle URL manipulation. Unfortunately, it isn't well documented.</p>
+
+<p>There is a kernal level method named URI which parses the full url and breaks it down into parts</p>
+
+<pre><code># request.url = http://www.mystore.com/cart?sort=desc
+uri = URI(request.url)
+puts uri.host # www.mystore.com
+puts uri.scheme # http
+puts uri.query # sort=desc
+</code></pre>
+
+<p>To swap the host and scheme was easy enough</p>
+
+<pre><code>uri.host = "mobile.mystore.com"
+uri.scheme = "https"
+</code></pre>
+
+<p>To modify the query parameters, we had to consider the possiblity of no parameters. In that case, the uri.query would be nil. The query parameters are only broken down into a string, so we have to split, add and join them back together.</p>
+
+<pre><code>query = uri.query ? uri.query.split('&amp;') : []
+query &lt;&lt; "view=ipad"
+uri.query = query.join('&amp;')
+</code></pre>
+
+<p>Then we just have to reconstruct the url and redirect the user</p>
+
+<pre><code>redirect_to uri.to_s # https://mobile.mystore.com/cart?sort=desc&amp;view=ipad
+</code></pre>
+
+<h2>Conclusion</h2>
+
+<p>There is always a cleaner way.</p>
+]]></content>
+  </entry>
+  
+</feed>

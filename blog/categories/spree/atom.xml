@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: spree | cmar blog]]></title>
+  <link href="http://cmar.github.com/blog/categories/spree/atom.xml" rel="self"/>
+  <link href="http://cmar.github.com/"/>
+  <updated>2013-03-18T09:22:16-04:00</updated>
+  <id>http://cmar.github.com/</id>
+  <author>
+    <name><![CDATA[Chris Mar]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Spree Product Groups Removed]]></title>
+    <link href="http://cmar.github.com/blog/2012/03/06/spree-product-groups-removed/"/>
+    <updated>2012-03-06T09:56:00-05:00</updated>
+    <id>http://cmar.github.com/blog/2012/03/06/spree-product-groups-removed</id>
+    <content type="html"><![CDATA[<p>We have removed Product Groups from the core Spree project. This was a rarely used feature; but, the code was fairly complex. In an effort to keep Spree lean, the code was extracted and moved to an <a href="https://github.com/spree/spree_product_groups">extension</a>.</p>
+
+<p>The commit to <a href="https://github.com/spree/spree/commit/b0e1b664f4dc87efeb54333e4cfe7802d0d9ebfc">Spree Master</a> will be part of the 1.1 release. If you are using Product Group functionality, then you'll want to include the extension in your Gemfile after 'spree'.</p>
+
+<p><code>ruby
+gem 'spree'
+gem 'spree_product_groups', :git =&gt; 'git@github.com:spree/spree_product_groups.git'
+</code></p>
+
+<p>It has not been released as a gem, so you'll have to declare it with a reference to the git repository.</p>
+
+<p>All previous Product Group functionality will be restored by the extension.</p>
+]]></content>
+  </entry>
+  
+</feed>

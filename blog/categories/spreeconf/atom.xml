@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SpreeConf | cmar blog]]></title>
+  <link href="http://cmar.github.com/blog/categories/spreeconf/atom.xml" rel="self"/>
+  <link href="http://cmar.github.com/"/>
+  <updated>2013-03-18T09:22:16-04:00</updated>
+  <id>http://cmar.github.com/</id>
+  <author>
+    <name><![CDATA[Chris Mar]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Slides from SpreeConf 2012 NYC]]></title>
+    <link href="http://cmar.github.com/blog/2012/02/22/slides-from-spreeconf-2012-nyc/"/>
+    <updated>2012-02-22T07:32:00-05:00</updated>
+    <id>http://cmar.github.com/blog/2012/02/22/slides-from-spreeconf-2012-nyc</id>
+    <content type="html"><![CDATA[<p>Here are the slides from my talk at SpreeConf 2012 in New York City. I covered the new Preferences for Spree 1.0 and their usages in payments and promotions. I went pretty deep with a lot of interaction diagrams.</p>
+
+<script src="http://speakerdeck.com/embed/4f40db32156b230022009e13.js"></script>
+
+
+<p><a href="https://github.com/cmar/spree_conf_pref_demo">Demo Source Code on Github</a></p>
+]]></content>
+  </entry>
+  
+</feed>

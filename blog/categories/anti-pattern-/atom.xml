@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: anti-pattern, | cmar blog]]></title>
+  <link href="http://cmar.github.com/blog/categories/anti-pattern-/atom.xml" rel="self"/>
+  <link href="http://cmar.github.com/"/>
+  <updated>2013-03-18T09:22:16-04:00</updated>
+  <id>http://cmar.github.com/</id>
+  <author>
+    <name><![CDATA[Chris Mar]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Call super in method_missing]]></title>
+    <link href="http://cmar.github.com/blog/2012/03/01/call-super-in-method-missing/"/>
+    <updated>2012-03-01T14:07:00-05:00</updated>
+    <id>http://cmar.github.com/blog/2012/03/01/call-super-in-method-missing</id>
+    <content type="html"><![CDATA[<p>Recently, I was refactoring some code and came across this seemingly innocuous method_missing override:</p>
+
+<p><code>ruby
+def method_missing(name)
+  @properties[name]
+end
+</code></p>
+
+<p>I've seen this <strong>quick</strong> hack more often then I'd prefer. It allows easy reader access to the values stored in the hash.</p>
+
+<p>```ruby</p>
+
+<h1>instead of this</h1>
+
+<p>object.properties[:keywords]</p>
+
+<h1>you can call this</h1>
+
+<p>object.keywords
+```</p>
+
+<p>The <em>keywords</em> method is not found; so, method_missing is called. The missing method name is passed to the hash and the value is returned. But if the key does not exsist, then nil is returned. The side effect is that any method name can be called on the object and nil is returned. Even inncorect method names will happily return nil. This can propogate misspelled method names throughout the code.</p>
+
+<p>Overriding method_missing is a great way to quickly add convenient reader methods to your object. But method_missing has an important job. By not calling super, your changing the assumed behavior native to ruby. Misspelled method names or methods which do not exist should raise an exception. This is the expected behavior.</p>
+
+<p>The correct way to override method_missing is to check if the key exists; otherwise call super.</p>
+
+<p>```ruby
+def method_missing(name)</p>
+
+<pre><code>if @properties.has_key? name
+    @properties[name]
+else
+    super
+end
+</code></pre>
+
+<p>end
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

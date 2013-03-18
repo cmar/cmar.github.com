@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: vim | cmar blog]]></title>
+  <link href="http://cmar.github.com/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://cmar.github.com/"/>
+  <updated>2013-03-18T09:22:16-04:00</updated>
+  <id>http://cmar.github.com/</id>
+  <author>
+    <name><![CDATA[Chris Mar]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hemisu Theme for Vim and Terminal]]></title>
+    <link href="http://cmar.github.com/blog/2012/05/11/hemisu-theme-for-vim-and-terminal/"/>
+    <updated>2012-05-11T08:08:00-04:00</updated>
+    <id>http://cmar.github.com/blog/2012/05/11/hemisu-theme-for-vim-and-terminal</id>
+    <content type="html"><![CDATA[<p>There is a new theme in town. Move over solarized. Make room for Hemisu.
+This has become my new vim and terminal theme for daily coding. I tried
+to use solarized; but I couldn't fall in love.</p>
+
+<p>Noah Frederick has created this amazing theme for Vim and Mac Terminal.
+It includes light and dark variations. I prefer the dark background unless
+I get stuck by the window at Starbucks. Then it is a simple "set background=light".</p>
+
+<ul>
+<li><a href="http://noahfrederick.com/vim-color-scheme-hemisu">Hemisu Vim Theme</a></li>
+<li><a href="http://noahfrederick.com/vim-color-scheme-hemisu">Hemisu Mac Terminal Theme</a></li>
+</ul>
+
+
+<p><img src="/images/hemisu.png" alt="hemisu preview" /></p>
+]]></content>
+  </entry>
+  
+</feed>

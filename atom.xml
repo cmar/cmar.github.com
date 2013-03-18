@@ -1,112 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>cmar blog</title>
-  <meta name="author" content="Chris Mar">
-
-  
-  <meta name="description" content="Deface is a gem to make targeted changes to views without altering the source
-file. It was developed by the Spree core team to help when multiple &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://cmar.github.com">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="cmar blog" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-30097567-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">cmar blog</a></h1>
-  
-    <h2>Spree Engineer.</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:cmar.github.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[cmar blog]]></title>
+  <link href="http://cmar.github.com/atom.xml" rel="self"/>
+  <link href="http://cmar.github.com/"/>
+  <updated>2013-03-18T09:22:16-04:00</updated>
+  <id>http://cmar.github.com/</id>
+  <author>
+    <name><![CDATA[Chris Mar]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2012/08/10/defacing-your-views/">Defacing Your Views</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2012-08-10T09:56:00-04:00" pubdate data-updated="true">Aug 10<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Deface is a gem to make targeted changes to views without altering the source
+  <entry>
+    <title type="html"><![CDATA[Defacing Your Views]]></title>
+    <link href="http://cmar.github.com/blog/2012/08/10/defacing-your-views/"/>
+    <updated>2012-08-10T09:56:00-04:00</updated>
+    <id>http://cmar.github.com/blog/2012/08/10/defacing-your-views</id>
+    <content type="html"><![CDATA[<p>Deface is a gem to make targeted changes to views without altering the source
 file. It was developed by the Spree core team to help when multiple engines
 attempt to override the same view file.</p>
 
@@ -114,44 +26,17 @@ attempt to override the same view file.</p>
 
 <script async class="speakerdeck-embed" data-id="5025067408de81000204ef0d"
 data-ratio="1.299492385786802"
-src="//speakerdeck.com/assets/embed.js"></script>
+src="http://cmar.github.com//speakerdeck.com/assets/embed.js"></script>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/17/serving-additional-assets-on-the-pipeline/">Serving Additional Assets on the Pipeline</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-17T09:12:00-04:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h1>What is the problem?</h1>
+  <entry>
+    <title type="html"><![CDATA[Serving Additional Assets on the Pipeline]]></title>
+    <link href="http://cmar.github.com/blog/2012/05/17/serving-additional-assets-on-the-pipeline/"/>
+    <updated>2012-05-17T09:12:00-04:00</updated>
+    <id>http://cmar.github.com/blog/2012/05/17/serving-additional-assets-on-the-pipeline</id>
+    <content type="html"><![CDATA[<h1>What is the problem?</h1>
 
 <p>Javascript and Stylesheet files required in application.js/css are not directly
 accessable in production. This is hard to detect during development because
@@ -226,42 +111,15 @@ is not used. But without explictly declaring them in production.rb, they will no
 deployed to production.</p>
 
 <p>Stay on the Golden Path.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/11/hemisu-theme-for-vim-and-terminal/">Hemisu Theme for Vim and Terminal</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-11T08:08:00-04:00" pubdate data-updated="true">May 11<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>There is a new theme in town. Move over solarized. Make room for Hemisu.
+  <entry>
+    <title type="html"><![CDATA[Hemisu Theme for Vim and Terminal]]></title>
+    <link href="http://cmar.github.com/blog/2012/05/11/hemisu-theme-for-vim-and-terminal/"/>
+    <updated>2012-05-11T08:08:00-04:00</updated>
+    <id>http://cmar.github.com/blog/2012/05/11/hemisu-theme-for-vim-and-terminal</id>
+    <content type="html"><![CDATA[<p>There is a new theme in town. Move over solarized. Make room for Hemisu.
 This has become my new vim and terminal theme for daily coding. I tried
 to use solarized; but I couldn&#8217;t fall in love.</p>
 
@@ -275,43 +133,16 @@ I get stuck by the window at Starbucks. Then it is a simple &#8220;set backgroun
 </ul>
 
 
-<p><img src="/images/hemisu.png" alt="hemisu preview" /></p>
-</div>
+<p><img src="http://cmar.github.com/images/hemisu.png" alt="hemisu preview" /></p>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/03/13/url-reconstruction-in-rails/">Url Reconstruction in Rails</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-13T10:50:00-04:00" pubdate data-updated="true">Mar 13<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Problem</h2>
+  <entry>
+    <title type="html"><![CDATA[url reconstruction in rails]]></title>
+    <link href="http://cmar.github.com/blog/2012/03/13/url-reconstruction-in-rails/"/>
+    <updated>2012-03-13T10:50:00-04:00</updated>
+    <id>http://cmar.github.com/blog/2012/03/13/url-reconstruction-in-rails</id>
+    <content type="html"><![CDATA[<h2>Problem</h2>
 
 <p>In Rails, I needed to take the request url and redirect the user to a new host with additional query parameters while passing the original path and query parameters.</p>
 
@@ -361,42 +192,15 @@ uri.query = query.join('&amp;')
 <h2>Conclusion</h2>
 
 <p>There is always a cleaner way.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/03/06/spree-product-groups-removed/">Spree Product Groups Removed</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-06T09:56:00-05:00" pubdate data-updated="true">Mar 6<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>We have removed Product Groups from the core Spree project. This was a rarely used feature; but, the code was fairly complex. In an effort to keep Spree lean, the code was extracted and moved to an <a href="https://github.com/spree/spree_product_groups">extension</a>.</p>
+  <entry>
+    <title type="html"><![CDATA[Spree Product Groups Removed]]></title>
+    <link href="http://cmar.github.com/blog/2012/03/06/spree-product-groups-removed/"/>
+    <updated>2012-03-06T09:56:00-05:00</updated>
+    <id>http://cmar.github.com/blog/2012/03/06/spree-product-groups-removed</id>
+    <content type="html"><![CDATA[<p>We have removed Product Groups from the core Spree project. This was a rarely used feature; but, the code was fairly complex. In an effort to keep Spree lean, the code was extracted and moved to an <a href="https://github.com/spree/spree_product_groups">extension</a>.</p>
 
 <p>The commit to <a href="https://github.com/spree/spree/commit/b0e1b664f4dc87efeb54333e4cfe7802d0d9ebfc">Spree Master</a> will be part of the 1.1 release. If you are using Product Group functionality, then you&#8217;ll want to include the extension in your Gemfile after &#8216;spree&#8217;.</p>
 
@@ -410,42 +214,15 @@ uri.query = query.join('&amp;')
 <p>It has not been released as a gem, so you&#8217;ll have to declare it with a reference to the git repository.</p>
 
 <p>All previous Product Group functionality will be restored by the extension.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/03/01/call-super-in-method-missing/">Call Super in Method_missing</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-01T14:07:00-05:00" pubdate data-updated="true">Mar 1<span>st</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Recently, I was refactoring some code and came across this seemingly innocuous method_missing override:</p>
+  <entry>
+    <title type="html"><![CDATA[Call super in method_missing]]></title>
+    <link href="http://cmar.github.com/blog/2012/03/01/call-super-in-method-missing/"/>
+    <updated>2012-03-01T14:07:00-05:00</updated>
+    <id>http://cmar.github.com/blog/2012/03/01/call-super-in-method-missing</id>
+    <content type="html"><![CDATA[<p>Recently, I was refactoring some code and came across this seemingly innocuous method_missing override:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -495,42 +272,15 @@ uri.query = query.join('&amp;')
 
 
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/02/28/debugging-spree-1-dot-0-with-ruby-1-dot-9-3/">Debugging Spree 1.0 With Ruby 1.9.3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-28T07:17:00-05:00" pubdate data-updated="true">Feb 28<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Here are the steps you need to get ruby-debug to work with Ruby 1.9.3p125 in the Spree sandbox.</p>
+  <entry>
+    <title type="html"><![CDATA[Debugging Spree 1.0 with Ruby 1.9.3]]></title>
+    <link href="http://cmar.github.com/blog/2012/02/28/debugging-spree-1-dot-0-with-ruby-1-dot-9-3/"/>
+    <updated>2012-02-28T07:17:00-05:00</updated>
+    <id>http://cmar.github.com/blog/2012/02/28/debugging-spree-1-dot-0-with-ruby-1-dot-9-3</id>
+    <content type="html"><![CDATA[<p>Here are the steps you need to get ruby-debug to work with Ruby 1.9.3p125 in the Spree sandbox.</p>
 
 <h2>Setup</h2>
 
@@ -599,185 +349,21 @@ uri.query = query.join('&amp;')
 
 
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/02/22/slides-from-spreeconf-2012-nyc/">Slides From SpreeConf 2012 NYC</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-22T07:32:00-05:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Here are the slides from my talk at SpreeConf 2012 in New York City. I covered the new Preferences for Spree 1.0 and their usages in payments and promotions. I went pretty deep with a lot of interaction diagrams.</p>
+  <entry>
+    <title type="html"><![CDATA[Slides from SpreeConf 2012 NYC]]></title>
+    <link href="http://cmar.github.com/blog/2012/02/22/slides-from-spreeconf-2012-nyc/"/>
+    <updated>2012-02-22T07:32:00-05:00</updated>
+    <id>http://cmar.github.com/blog/2012/02/22/slides-from-spreeconf-2012-nyc</id>
+    <content type="html"><![CDATA[<p>Here are the slides from my talk at SpreeConf 2012 in New York City. I covered the new Preferences for Spree 1.0 and their usages in payments and promotions. I went pretty deep with a lot of interaction diagrams.</p>
 
 <script src="http://speakerdeck.com/embed/4f40db32156b230022009e13.js"></script>
 
 
 <p><a href="https://github.com/cmar/spree_conf_pref_demo">Demo Source Code on Github</a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2012/08/10/defacing-your-views/">Defacing Your Views</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/17/serving-additional-assets-on-the-pipeline/">Serving Additional Assets on the Pipeline</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/11/hemisu-theme-for-vim-and-terminal/">Hemisu Theme for Vim and Terminal</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/03/13/url-reconstruction-in-rails/">url reconstruction in rails</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/03/06/spree-product-groups-removed/">Spree Product Groups Removed</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/cmar">@cmar</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'cmar',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("cmar", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/cmar" class="twitter-follow-button" data-show-count="false">Follow @cmar</a>
-  
-</section>
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Chris Mar -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'cmarblog';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-<a href="http://github.com/cmar"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
-
-</body>
-</html>
+</feed>

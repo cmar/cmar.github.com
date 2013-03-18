@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Serving Additional Assets on the Pipeline - cmar blog</title>
+  <meta name="author" content="Chris Mar">
+
+  
+  <meta name="description" content="What is the problem? Javascript and Stylesheet files required in application.js/css are not directly
+accessable in production. This is hard to detect &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://cmar.github.com/blog/2012/05/17/serving-additional-assets-on-the-pipeline">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="cmar blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30097567-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">cmar blog</a></h1>
+  
+    <h2>Spree Engineer.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:cmar.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Serving Additional Assets on the Pipeline</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-17T09:12:00-04:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h1>What is the problem?</h1>
+
+<p>Javascript and Stylesheet files required in application.js/css are not directly
+accessable in production. This is hard to detect during development because
+all assets are accessable through /assets/{name} in development mode.</p>
+
+<p>The Rails Golden Path expects all javascript and stylesheet files to be
+declared in application.js/css. They are compiled together and minified
+in production. Once they are compiled together in production, the individual
+files are not directly accessable through /assets/{name}.</p>
+
+<p>There are a couple situations where this causes problems. If you include a
+3rd party javascript library that includes additional files, they may be
+accessable in development, but quietly fail in production.</p>
+
+<p>We were using redactor.js which has 4 support files. It uses javascript
+to include the supporting files. We updated the declarations to /assets/en.js,
+/assets/pages.js etc. This worked fine in development. Redactor could access
+/assets/pages.js but in production when it was trying to request
+/assets/pages.js was returning 404.</p>
+
+<p>We required pages.js at the top of application.js. It was getting compiled
+together with the rest of the javascripts, but Redactor quietly failed when
+it couldn&#8217;t access /assets/pages.js.</p>
+
+<h1>Why did this happen?</h1>
+
+<p>Rails assumes you will declare all your javascript and stylesheets in application.js/css.
+It also assumes in development that you want to access all the files directly through
+/assets/{name}. But once all the files are compiled to the /public/assets/application.js,
+you don&#8217;t need direct access to the individal files. The direct access we enjoyed in development
+is no longer available.</p>
+
+<p>In production, some configuration options are set to improve performance:</p>
+
+<pre><code># Disable Rails's static asset server (Apache or nginx will already do this)
+config.serve_static_assets = true
+
+# Compress JavaScripts and CSS
+config.assets.compress = true
+
+# Don't fallback to assets pipeline if a precompiled asset is missed
+config.assets.compile = false
+</code></pre>
+
+<p>The last line says that if a file isn&#8217;t found in /public/assets don&#8217;t look in the
+project asset directories to find it. This is true in development.
+Any file burried in an assets directory can be found.</p>
+
+<p>When you deploy to production, &#8216;rake assets:precompile&#8217; is run. All the files declared
+in application.js will be compiled and minified into a single file in /public/assets. But
+the individual files will not be copied into /public/assets.</p>
+
+<h1>How do you fix it?</h1>
+
+<p>While you are in development mode, you can run &#8216;rake assets:precompile&#8217;. Then inspect
+your public/assets directory to see which files are copied over. If a specific file is
+not there; it will not be available in production.</p>
+
+<p>If you need a specific file compiled and accessable from public/assets you need to
+declare it in &#8216;config/enviroments/production.rb&#8217;:</p>
+
+<pre><code># Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+config.assets.precompile += %w( myfile.js )
+</code></pre>
+
+<p>If you need a javascript or stylesheet file to be directly accessable from public/assets, then you must
+add it to the array passed to <strong>config.assets.precompile</strong>. Once you add it, you can run
+&#8216;rake assets:precompile&#8217; again to verify the file is copied over.</p>
+
+<p>The trick is that the files are directly accessable in development mode so config.assets.precompile
+is not used. But without explictly declaring them in production.rb, they will not be available once you&#8217;ve
+deployed to production.</p>
+
+<p>Stay on the Golden Path.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Chris Mar</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-17T09:12:00-04:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/asset/'>asset</a>, <a class='category' href='/blog/categories/pipeline/'>pipeline</a>, <a class='category' href='/blog/categories/rails-/'>rails,</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cmar.github.com/blog/2012/05/17/serving-additional-assets-on-the-pipeline/" data-via="cmar" data-counturl="http://cmar.github.com/blog/2012/05/17/serving-additional-assets-on-the-pipeline/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/11/hemisu-theme-for-vim-and-terminal/" title="Previous Post: Hemisu Theme for Vim and Terminal">&laquo; Hemisu Theme for Vim and Terminal</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/08/10/defacing-your-views/" title="Next Post: Defacing Your Views">Defacing Your Views &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/08/10/defacing-your-views/">Defacing Your Views</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/17/serving-additional-assets-on-the-pipeline/">Serving Additional Assets on the Pipeline</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/11/hemisu-theme-for-vim-and-terminal/">Hemisu Theme for Vim and Terminal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/03/13/url-reconstruction-in-rails/">url reconstruction in rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/03/06/spree-product-groups-removed/">Spree Product Groups Removed</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/cmar">@cmar</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'cmar',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("cmar", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/cmar" class="twitter-follow-button" data-show-count="false">Follow @cmar</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Chris Mar -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'cmarblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cmar.github.com/blog/2012/05/17/serving-additional-assets-on-the-pipeline/';
+        var disqus_url = 'http://cmar.github.com/blog/2012/05/17/serving-additional-assets-on-the-pipeline/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+<a href="http://github.com/cmar"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails, | cmar blog]]></title>
+  <link href="http://cmar.github.com/blog/categories/rails-/atom.xml" rel="self"/>
+  <link href="http://cmar.github.com/"/>
+  <updated>2013-03-18T09:22:16-04:00</updated>
+  <id>http://cmar.github.com/</id>
+  <author>
+    <name><![CDATA[Chris Mar]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Serving Additional Assets on the Pipeline]]></title>
+    <link href="http://cmar.github.com/blog/2012/05/17/serving-additional-assets-on-the-pipeline/"/>
+    <updated>2012-05-17T09:12:00-04:00</updated>
+    <id>http://cmar.github.com/blog/2012/05/17/serving-additional-assets-on-the-pipeline</id>
+    <content type="html"><![CDATA[<h1>What is the problem?</h1>
+
+<p>Javascript and Stylesheet files required in application.js/css are not directly
+accessable in production. This is hard to detect during development because
+all assets are accessable through /assets/{name} in development mode.</p>
+
+<p>The Rails Golden Path expects all javascript and stylesheet files to be
+declared in application.js/css. They are compiled together and minified
+in production. Once they are compiled together in production, the individual
+files are not directly accessable through /assets/{name}.</p>
+
+<p>There are a couple situations where this causes problems. If you include a
+3rd party javascript library that includes additional files, they may be
+accessable in development, but quietly fail in production.</p>
+
+<p>We were using redactor.js which has 4 support files. It uses javascript
+to include the supporting files. We updated the declarations to /assets/en.js,
+/assets/pages.js etc. This worked fine in development. Redactor could access
+/assets/pages.js but in production when it was trying to request
+/assets/pages.js was returning 404.</p>
+
+<p>We required pages.js at the top of application.js. It was getting compiled
+together with the rest of the javascripts, but Redactor quietly failed when
+it couldn't access /assets/pages.js.</p>
+
+<h1>Why did this happen?</h1>
+
+<p>Rails assumes you will declare all your javascript and stylesheets in application.js/css.
+It also assumes in development that you want to access all the files directly through
+/assets/{name}. But once all the files are compiled to the /public/assets/application.js,
+you don't need direct access to the individal files. The direct access we enjoyed in development
+is no longer available.</p>
+
+<p>In production, some configuration options are set to improve performance:</p>
+
+<pre><code># Disable Rails's static asset server (Apache or nginx will already do this)
+config.serve_static_assets = true
+
+# Compress JavaScripts and CSS
+config.assets.compress = true
+
+# Don't fallback to assets pipeline if a precompiled asset is missed
+config.assets.compile = false
+</code></pre>
+
+<p>The last line says that if a file isn't found in /public/assets don't look in the
+project asset directories to find it. This is true in development.
+Any file burried in an assets directory can be found.</p>
+
+<p>When you deploy to production, 'rake assets:precompile' is run. All the files declared
+in application.js will be compiled and minified into a single file in /public/assets. But
+the individual files will not be copied into /public/assets.</p>
+
+<h1>How do you fix it?</h1>
+
+<p>While you are in development mode, you can run 'rake assets:precompile'. Then inspect
+your public/assets directory to see which files are copied over. If a specific file is
+not there; it will not be available in production.</p>
+
+<p>If you need a specific file compiled and accessable from public/assets you need to
+declare it in 'config/enviroments/production.rb':</p>
+
+<pre><code># Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+config.assets.precompile += %w( myfile.js )
+</code></pre>
+
+<p>If you need a javascript or stylesheet file to be directly accessable from public/assets, then you must
+add it to the array passed to <strong>config.assets.precompile</strong>. Once you add it, you can run
+'rake assets:precompile' again to verify the file is copied over.</p>
+
+<p>The trick is that the files are directly accessable in development mode so config.assets.precompile
+is not used. But without explictly declaring them in production.rb, they will not be available once you've
+deployed to production.</p>
+
+<p>Stay on the Golden Path.</p>
+]]></content>
+  </entry>
+  
+</feed>
