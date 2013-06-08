@@ -4,7 +4,7 @@
   <title><![CDATA[cmar blog]]></title>
   <link href="http://cmar.github.com/atom.xml" rel="self"/>
   <link href="http://cmar.github.com/"/>
-  <updated>2013-06-01T13:51:04-04:00</updated>
+  <updated>2013-06-08T07:20:47-04:00</updated>
   <id>http://cmar.github.com/</id>
   <author>
     <name><![CDATA[Chris Mar]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fun with Shipments at SpreeConfDC]]></title>
+    <link href="http://cmar.github.com/blog/2013/06/08/fun-with-shipments-at-spreeconfdc/"/>
+    <updated>2013-06-08T06:42:00-04:00</updated>
+    <id>http://cmar.github.com/blog/2013/06/08/fun-with-shipments-at-spreeconfdc</id>
+    <content type="html"><![CDATA[<p>I opened SpreeConfDC with a talk on the current state of the Spree community and a discussion of the new Split Shipments in Spree 2.0. I&#8217;m really proud of the design and hard work the core team put into building this powerful feature.</p>
+
+<p>Split Shipments was designed to help store owners of all sizes. The default behavior will be familiar to long time Spree users. But underneath lies a powerful set of constructs to help your store grow from a single location to a world wide enterprise.</p>
+
+<p>This post gathers the video and slides for my talk. Thanks to
+<a href="http://twitter.com/nate_edwards80">Nate Edwards</a> who recorded my talk and published it in 2 parts.</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/Tn2TZb9zzG0" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/8kMFSEj_ASc" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<script async class="speakerdeck-embed" data-id="591272f0a6020130eec33aee331b8d2d" data-ratio="1.2994923857868" src="http://cmar.github.com//speakerdeck.com/assets/embed.js"></script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[bundle searching]]></title>
